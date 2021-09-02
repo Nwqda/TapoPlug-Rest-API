@@ -1,0 +1,10 @@
+README.md
+setup.py
+tapo_plug/__init__.py
+tapo_plug/tapoEncryption.py
+tapo_plug/tapoPlugApi.py
+tapo_plug.egg-info/PKG-INFO
+tapo_plug.egg-info/SOURCES.txt
+tapo_plug.egg-info/dependency_links.txt
+tapo_plug.egg-info/requires.txt
+tapo_plug.egg-info/top_level.txt

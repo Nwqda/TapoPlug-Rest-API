@@ -1,0 +1,3 @@
+requests>=1.4
+Crypto
+pkcs7
