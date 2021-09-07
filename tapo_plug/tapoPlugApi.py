@@ -233,12 +233,12 @@ def plugOffCountdown(deviceInfo):
   data = {
     "method": "add_countdown_rule",
     "params": {
-      "delay":15,
+      "delay":int(deviceInfo['delay']),
       "desired_states":{
         "on":False
       },
       "enable":True,
-      "remain":15
+      "remain":int(deviceInfo['delay'])
     },
     "requestTimeMils":0,
     "terminalUUID": "AA3512F85D2C603C3434C5BD9EA95B43"
@@ -283,6 +283,58 @@ def getPlugLog(deviceInfo):
     "terminalUUID": "AA3512F85D2C603C3434C5BD9EA95B43"
   }
   
+  response = execRequest(deviceInfo, keys, data)
+  return response
+
+
+'''
+Get wireless access points information around the plug.
+'''
+def getWirelessScanInfo(deviceInfo):
+  keys = loadKeys(deviceInfo)
+
+  data = {
+    "method": "get_wireless_scan_info",
+    "params": {
+      "start_index":0
+    },
+    "requestTimeMils":0,
+    "terminalUUID": "AA3512F85D2C603C3434C5BD9EA95B43"
+  }
+  
+  response = execRequest(deviceInfo, keys, data)
+  return response
+
+'''
+Change plug wifi settings.
+'''
+def setWirelessInfo(deviceInfo):
+  keys = loadKeys(deviceInfo)
+
+  data = {
+    "method": "set_qs_info",
+    "params": {
+      'account': {
+          'password': base64.b64encode(deviceInfo['tapoEmail'].encode()).decode("utf-8"),
+          'username': base64.b64encode(deviceInfo['tapoPassword'].encode()).decode("utf-8")
+      },
+      'time': {
+          'latitude': 90,
+          'longitude': -135,
+          'region': deviceInfo['region'],
+          'time_diff': 60,
+          'timestamp': 1619885501
+      },
+      'wireless': {
+          'key_type': deviceInfo['key_type'],
+          'password': base64.b64encode(deviceInfo['password'].encode()).decode("utf-8"),
+          'ssid': base64.b64encode(deviceInfo['ssid'].encode()).decode("utf-8")
+      }
+    },
+    "requestTimeMils":0,
+    "terminalUUID": "AA3512F85D2C603C3434C5BD9EA95B43"
+  }
+  return data
   response = execRequest(deviceInfo, keys, data)
   return response
 

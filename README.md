@@ -1,3 +1,4 @@
+
 # TapoPlugAPI
 
 Tapo Plug Api is a python warper that can be easily integrated in any project to control the TP-Link Tapo P100 and P105 plugs.
@@ -225,6 +226,40 @@ response = tapoPlugApi.qsComponentNego(device)
 print(response)
 ```
 
+* Get wireless access points information around the plug.
+SSID are encoded in base64
+```python
+from tapo_plug import tapoPlugApi
+  
+device = {
+    "tapoIp": "DEVICE IP",
+    "tapoEmail": "ENTER YOUR TP-LINK EMAIL",
+    "tapoPassword": "ENTER YOUR TP-LINK PWD"
+}
+  
+response = tapoPlugApi.getWirelessScanInfo(device)
+print(response)
+```
+
+* Update plug WiFi settings.
+```python
+from tapo_plug import tapoPlugApi
+  
+device = {
+    "tapoIp": "DEVICE IP",
+    "tapoEmail": "ENTER YOUR TP-LINK EMAIL",
+    "tapoPassword": "ENTER YOUR TP-LINK PWD",
+    "ssid": "AP SSID",
+    "password": "AP PASSWORD",
+    "key_type":"AP ENC", #wpa2_psk...
+    "region": "Asia/Tokyo", #Meaningless, but seems required
+}
+  
+response = tapoPlugApi.setWirelessInfo(device)
+print(response)
+```
+*Don't forget to change your tapo IP in the dict once this request completed :)
+
 ### Full endpoints list:
 
 Here are all enpoints used by Tapo P105 found in the firmware.
@@ -275,3 +310,4 @@ http://download.tplinkcloud.com/firmware/P105_1.3.2_20210122_r57063_up_signed_16
 * To build a package to install via `pip` or `easy_install`, execute:
     * `python setup.py sdist`
 * The resulting build will be in `$PWD/dist/tapo_plug-<version>.tar.gz`
+
