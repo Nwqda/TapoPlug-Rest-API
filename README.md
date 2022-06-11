@@ -304,8 +304,31 @@ exec_atcmd |  I think the function exec_atcmd is one of the most interesting bec
 
 ### Tapo firmware:
 
-Tapo P105 1.3.2 firmware:
-http://download.tplinkcloud.com/firmware/P105_1.3.2_20210122_r57063_up_signed_1615802824400.bin
+Tapo P105 1.3.2 firmware:<br>
+http://download.tplinkcloud.com/firmware/P105_1.3.2_20210122_r57063_up_signed_1615802824400.bin<br><br>
+
+[2022-05-30] Update - Tapo P105 1.3.3 firmware has been released:<br>
+http://download.tplinkcloud.com/firmware/P105_1-3-320220311-rel61171_2022-04-12_11.04.5_1653890825333.bin
+```json
+{
+  "error_code": 0,
+  "result": {
+    "fwList": [
+      {
+        "fwReleaseLog": "Modifications and Bug Fixes:\n1.Fixed the bug that fail to set schedule remotely.\n",
+        "fwVer": "1.3.3 Build 220311 Rel.61171",
+        "fwReleaseDate": "2022-05-30",
+        "fwType": 2,
+        "fwUrl": "http://download.tplinkcloud.com/firmware/P105_1-3-320220311-rel61171_2022-04-12_11.04.5_1653890825333.bin",
+        "fwTitle": "Hi, a new firmware with bug fixes is available for your Tapo P105.",
+        "fwLocation": 0,
+        "fwReleaseLogUrl": "undefined yet"
+      }
+    ]
+  }
+}
+```
+
 
 ### Building modules:
 
